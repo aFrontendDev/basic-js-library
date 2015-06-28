@@ -100,6 +100,14 @@ window._basic = (function () {
         return false;
     };
 
+    _Basic.prototype.ready = function (fn) {
+        if (document.readyState != 'loading'){
+            fn();
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
+    };
+
     var _basic = {
         get: function (selector) {
             var els;
