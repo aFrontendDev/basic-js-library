@@ -6,6 +6,7 @@
 *
 ======================================================*/
 
+
 window._basic = (function () {
     function _Basic (els) {
         for (var i = 0; i < els.length; i++) {
@@ -99,7 +100,6 @@ window._basic = (function () {
         return false;
     };
 
-
     var _basic = {
         get: function (selector) {
             var els;
@@ -113,6 +113,22 @@ window._basic = (function () {
             }
 
             return new _Basic(els);
+        },
+
+        extend: function ( defaults, options ) {
+            var extended = {};
+            var prop;
+            for (prop in defaults) {
+                if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+                    extended[prop] = defaults[prop];
+                }
+            }
+            for (prop in options) {
+                if (Object.prototype.hasOwnProperty.call(options, prop)) {
+                    extended[prop] = options[prop];
+                }
+            }
+            return extended;
         }
     };
 
